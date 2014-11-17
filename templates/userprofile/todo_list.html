@@ -7,10 +7,42 @@
 <thead><tr><th>Users</th><th>Acciones</th></tr></thead>
 <tbody>
   {% for todo in todo_list %}
-  <tr><td>{% if perms.todo.view_todo %}<a 
-  	          href="{{userprofile.get_absolute_url}}">{{todo}}</a>{% else %}{{todo}}{% endif %}</td>
-  <td>{% if perms.userprofile.change_todo %}<a href="{% url 'app_update' todo.pk %}">Editar</a>{% endif %} | {% if perms.userprofile.delete_app %}<a href="{% url 'app_delete' todo.pk %}">Eliminar</a>{% endif %}</td></tr>
+  <tr><td>{% if perms.todo.view_todo %}
+  	<a href="{{userprofile.get_absolute_url}}">{{todo}}</a>
+  	{% else %}{{todo}}{% endif %}
+  </td>
+  <td>
+  	
+  	{% if perms.userprofile.change_todo %}
+  	<a href="{% url 'app_update' todo.pk %}">Editar</a>
+  	{% endif %} | {% if perms.userprofile.delete_app %}
+  	<a href="{% url 'app_delete' todo.pk %}">Eliminar</a>
+  	{% endif %}
+  </td></tr>
   {% endfor %}
 </tbody>
 </table>
 {% endblock %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Mi primera página con estilo</title>
+  <style type="text/css">
+  body {
+    padding-left: 11em;
+    font-family: Georgia, "Times New Roman",
+          Times, serif;
+    color: purple;
+    background-color: #000000 }
+  ul.navbar {
+    position: absolute;
+    top: 2em;
+    left: 1em;
+    width: 9em }
+  h1 {
+    font-family: Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif }
+  </style>
+</head>
+
+<body>
